@@ -1,6 +1,6 @@
 # dotfiles
 
-![image](https://github.com/duongital/dotfiles/assets/5635533/076826f4-0699-4d69-98c9-083e2ec21cd3)
+![image](https://github.com/duongital/dotfiles/assets/5635533/8ac2df85-dad2-4bb7-815b-04e495354e4f)
 
 My config files for MacOS and Linux.
 
@@ -23,5 +23,8 @@ Change the permission to allow the script `main.sh`:
 
 ## starship
 
-- follow the setup on [Starship Github](https://github.com/starship/starship)
+- follow a setup on [Starship Github](https://github.com/starship/starship)
 
+## alacritty
+
+- follow a setup on [Alacritty Github](https://github.com/alacritty/alacritty)
