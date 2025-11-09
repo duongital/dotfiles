@@ -2,29 +2,120 @@
 
 ![image](https://github.com/duongital/dotfiles/assets/5635533/8ac2df85-dad2-4bb7-815b-04e495354e4f)
 
-My config files for MacOS and Linux.
+My personal dotfiles for macOS, Linux, and WSL.
 
-Change the permission to allow the script `main.sh`:
+## Quick Installation
 
-- add permission: `chmod +x ./main.sh`
-- then run: `./main.sh`
+```bash
+# Clone the repository
+git clone https://github.com/duongital/dotfiles.git
+cd dotfiles
 
-## tmux
+# Run the installation script
+chmod +x install.sh
+./install.sh
+```
 
-- install [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
-- optional: theme is [Catppuccin](https://github.com/catppuccin/tmux)
-- update plugins: `Ctrl B` and then `Shift I`
-- update source file: `tmux source ~/.tmux.conf`
+The install script will:
+- Detect your OS (macOS, Linux, or WSL)
+- Backup existing configurations
+- Symlink dotfiles to your home directory
+- Optionally install recommended dependencies
 
-## vim or nvim
+## Included Configurations
 
-- install [Vim Plugins](https://github.com/junegunn/vim-plug) to manage Plugins
-- after copy config file, run nvim and update `:PlugInstall`
+### Neovim
 
-## starship
+Modern Neovim configuration using [lazy.nvim](https://github.com/folke/lazy.nvim) plugin manager.
 
-- follow a setup on [Starship Github](https://github.com/starship/starship)
+**Plugins included:**
+- **TokyoNight** - Color scheme
+- **Telescope** - Fuzzy finder
+- **nvim-tree** - File explorer
+- **Treesitter** - Syntax highlighting
+- **lualine** - Status line
+- **which-key** - Keybinding hints
+- **Comment.nvim** - Easy commenting
+- **nvim-autopairs** - Auto-closing pairs
 
-## alacritty
+**First time setup:**
+1. Open nvim: `nvim`
+2. Lazy.nvim will automatically install
+3. Run `:Lazy sync` to install all plugins
 
-- follow a setup on [Alacritty Github](https://github.com/alacritty/alacritty)
+**Key mappings:**
+- Leader key: `Space`
+- `<leader>ff` - Find files
+- `<leader>fg` - Live grep
+- `<leader>fb` - Find buffers
+- `<leader>fh` - Help tags
+- `<leader>e` - Toggle file explorer
+- `<leader>o` - Focus file explorer
+
+### Tmux
+
+- Install [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
+- Optional theme: [Catppuccin](https://github.com/catppuccin/tmux)
+- Update plugins: `Ctrl B` + `Shift I`
+- Reload config: `tmux source ~/.tmux.conf`
+
+### Starship
+
+Modern shell prompt. Add to your shell config:
+
+```bash
+# For zsh (~/.zshrc)
+eval "$(starship init zsh)"
+
+# For bash (~/.bashrc)
+eval "$(starship init bash)"
+```
+
+### Alacritty
+
+Modern GPU-accelerated terminal emulator.
+
+- Setup guide: [Alacritty Installation](https://github.com/alacritty/alacritty)
+- Font used: JetBrainsMono Nerd Font
+
+## Dependencies
+
+### macOS (via Homebrew)
+```bash
+brew install neovim tmux alacritty starship ripgrep fd
+```
+
+### Linux/WSL (via apt)
+```bash
+sudo apt update
+sudo apt install neovim tmux ripgrep fd-find
+
+# Starship
+curl -sS https://starship.rs/install.sh | sh
+```
+
+## Structure
+
+```
+dotfiles/
+├── .config/
+│   ├── alacritty/
+│   │   └── alacritty.toml
+│   ├── nvim/
+│   │   ├── init.lua
+│   │   ├── lazy-lock.json
+│   │   └── lua/
+│   │       └── plugins/
+│   │           ├── autopairs.lua
+│   │           ├── colorscheme.lua
+│   │           ├── comment.lua
+│   │           ├── lualine.lua
+│   │           ├── nvim-tree.lua
+│   │           ├── telescope.lua
+│   │           ├── treesitter.lua
+│   │           └── which-key.lua
+│   └── startship.toml
+├── .tmux.conf
+├── .vimrc
+└── install.sh
+```
