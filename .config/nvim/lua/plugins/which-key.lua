@@ -5,18 +5,23 @@ return {
     local wk = require("which-key")
 
     wk.setup({
-      preset = "modern",
-      delay = 300,
-      -- Show popup at bottom
-      win = {
+      plugins = {
+        marks = true,
+        registers = true,
+        spelling = {
+          enabled = true,
+          suggestions = 20,
+        },
+      },
+      window = {
         border = "rounded",
         position = "bottom",
       },
     })
 
     -- Optional: Define key group names for better organization
-    wk.add({
-      { "<leader>f", group = "Find (Telescope)" },
-    })
+    wk.register({
+      f = { name = "Find (Telescope)" },
+    }, { prefix = "<leader>" })
   end,
 }
