@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  playwright:
+    image: mcr.microsoft.com/playwright/mcp
+    container_name: playwright
+    entrypoint: node
+    command: cli.js --headless --browser chromium --no-sandbox --port 8931
+    ports:
+      - "8931:8931"
+    stdin_open: true
+    init: true
+    pull_policy: always
+    restart: unless-stopped
