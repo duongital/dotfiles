@@ -25,7 +25,7 @@ You are going to fetch and analyze Hacker News front page articles from a specif
    - {time} is in HH:MM format (e.g., 14:01) using current local time
    - Example: 2025-11-12_14:01_front.md
 
-7. Write the output to a markdown file in the current directory
+7. Write the output to a markdown file in the news/ folder
 
 Output format for the markdown file:
 ```
@@ -60,7 +60,7 @@ Important:
 - Keep summaries concise but informative
 - Include all ~30 articles from the page
 - Provide direct links for easy access
-- Save the output to a markdown file named {date}_{time}_front.md in the current directory
+- Save the output to a markdown file named {date}_{time}_front.md in the news/ folder
 - If the date page doesn't exist or has no articles, inform the user
 
 Example usage:

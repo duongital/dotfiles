@@ -17,7 +17,7 @@ You are going to fetch and analyze Hacker News Show HN posts. Follow these steps
    - Include engagement metrics (points, comments) if available
    - Group it under the appropriate topic
 5. Generate a timestamp in the format YYYY-MM-DD_HH:MM (e.g., 2025-11-12_14:00)
-6. Write the output to a markdown file named with the timestamp and "show" prefix (e.g., 2025-11-12_14:00_show.md) in the current directory
+6. Write the output to a markdown file named with the timestamp and "show" prefix (e.g., 2025-11-12_14:00_show.md) in the news/ folder
 
 Output format for the markdown file:
 ```
@@ -56,5 +56,5 @@ Important:
 - Include all Show HN posts from the page
 - Provide direct links for easy access
 - Include engagement metrics when available to highlight popular posts
-- Save the output to a markdown file with timestamp and "show" suffix in the current directory
+- Save the output to a markdown file with timestamp and "show" suffix in the news/ folder
 

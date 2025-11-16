@@ -12,7 +12,7 @@ You are going to fetch and analyze Hacker News best articles. Follow these steps
    - Include the original URL
    - Group it under the appropriate topic
 5. Generate a timestamp in the format YYYY-MM-DD_HH:MM (e.g., 2025-11-07_12:00)
-6. Write the output to a markdown file named with the timestamp (e.g., 2025-11-07_12:00.md) in the current directory
+6. Write the output to a markdown file named with the timestamp (e.g., 2025-11-07_12:00.md) in the news/ folder
 
 Output format for the markdown file:
 ```
@@ -46,5 +46,5 @@ Important:
 - Keep summaries concise but informative
 - Include all ~30 articles from the page
 - Provide direct links for easy access
-- Save the output to a markdown file with timestamp in the current directory
+- Save the output to a markdown file with timestamp in the news/ folder
 

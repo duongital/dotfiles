@@ -18,7 +18,7 @@ You are going to fetch and analyze Hacker News job postings. Follow these steps:
    - Include the original URL
    - Group it under the appropriate category
 5. Generate a timestamp in the format YYYY-MM-DD_HH:MM (e.g., 2025-11-12_14:00)
-6. Write the output to a markdown file named with the timestamp and "jobs" prefix (e.g., 2025-11-12_14:00_jobs.md) in the current directory
+6. Write the output to a markdown file named with the timestamp and "jobs" prefix (e.g., 2025-11-12_14:00_jobs.md) in the news/ folder
 
 Output format for the markdown file:
 ```
@@ -55,6 +55,6 @@ Important:
 - Keep summaries concise but informative
 - Include all available job postings from the page
 - Provide direct links for easy access
-- Save the output to a markdown file with timestamp and "jobs" suffix in the current directory
+- Save the output to a markdown file with timestamp and "jobs" suffix in the news/ folder
 - If location or other details are not available, you can omit those fields
 
