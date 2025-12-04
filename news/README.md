@@ -7,6 +7,7 @@
 1. Start the Docker MCP Playwright server on `http://localhost:8931`
 
 2. Add to project:
+
 ```bash
 claude mcp add --transport http playwright --scope project http://localhost:8931/mcp
 ```
