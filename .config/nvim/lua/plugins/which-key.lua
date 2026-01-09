@@ -1,27 +1,13 @@
+-- Keybinding Helper Plugin
+-- Displays a popup with possible keybindings when you start typing a command
+-- Features:
+--   - Shows available keybindings after a delay
+--   - Organized by prefix (e.g., all <leader> commands)
+--   - Helps discover and remember keybindings
+--   - Displays descriptions for each binding
 return {
   "folke/which-key.nvim",
-  event = "VeryLazy",
   config = function()
-    local wk = require("which-key")
-
-    wk.setup({
-      plugins = {
-        marks = true,
-        registers = true,
-        spelling = {
-          enabled = true,
-          suggestions = 20,
-        },
-      },
-      window = {
-        border = "rounded",
-        position = "bottom",
-      },
-    })
-
-    -- Optional: Define key group names for better organization
-    wk.register({
-      f = { name = "Find (Telescope)" },
-    }, { prefix = "<leader>" })
+    require("which-key").setup()
   end,
 }

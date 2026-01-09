@@ -1,12 +1,35 @@
+-- Fuzzy Finder Plugin
+-- Highly extendable fuzzy finder over lists (files, buffers, git files, etc.)
+-- Features:
+--   - Fast fuzzy file search
+--   - Live grep (search text across project)
+--   - Buffer/help/command searching
+--   - Preview window for files
+-- Keybindings (from keymaps.lua):
+--   <leader>ff - Find files
+--   <leader>fg - Live grep (search text)
+--   <leader>fb - Find buffers
 return {
-  'nvim-telescope/telescope.nvim',
-  tag = '0.1.8',
-  dependencies = { 'nvim-lua/plenary.nvim' },
-  config = function()
-    local builtin = require('telescope.builtin')
-    vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Find files' })
-    vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Live grep' })
-    vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Find buffers' })
-    vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Help tags' })
-  end
+  {
+    "nvim-telescope/telescope.nvim",
+    tag = "0.1.8",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("telescope").setup({
+        defaults = {
+          file_ignore_patterns = { "node_modules", ".git/" },
+          mappings = {
+            i = {
+              ["<C-j>"] = "move_selection_next",
+              ["<C-k>"] = "move_selection_previous",
+            },
+          },
+        },
+      })
+    end,
+  },
+  {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    build = "make",
+  },
 }

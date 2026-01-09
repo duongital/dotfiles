@@ -12,23 +12,9 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Basic settings
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+-- Load configuration
+require("config.options")
+require("config.keymaps")
 
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.mouse = 'a'
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.hlsearch = false
-vim.opt.wrap = true
-vim.opt.linebreak = true
-vim.opt.breakindent = true
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
-vim.opt.termguicolors = true
-
--- Load plugins
+-- Setup lazy.nvim
 require("lazy").setup("plugins")
