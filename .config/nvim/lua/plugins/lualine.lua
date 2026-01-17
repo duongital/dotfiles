@@ -21,9 +21,14 @@ return {
       },
       sections = {
         lualine_a = { "mode" },
-        lualine_b = { "diff" },
-        lualine_c = {},
-        --lualine_c = { { "filename", path = 1 } },
+        lualine_b = { "diff", "diagnostics" },
+        lualine_c = {
+          {
+            "navic",
+            color_correction = nil,
+            navic_opts = nil,
+          },
+        },
         lualine_x = {},
         lualine_y = { "progress" },
         lualine_z = { "location" },

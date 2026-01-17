@@ -12,12 +12,16 @@ return {
       insert_mappings = true,
       terminal_mappings = true,
       persist_size = true,
-      direction = "vertical",
+      direction = "float",
       close_on_exit = true,
       shell = vim.o.shell,
       float_opts = {
         border = "curved",
         winblend = 0,
+        width = 100,
+        height = 40,
+        row = 1,
+        col = vim.o.columns - 105,
       },
     })
 
