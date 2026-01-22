@@ -24,8 +24,7 @@ keymap("n", "<leader>bd", ":bdelete<CR>", { desc = "Delete buffer" })
 keymap("n", "<leader>bo", "<cmd>BufferLineCloseOthers<CR>", { desc = "Close other buffers" })
 
 -- File explorer
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
-keymap("n", "<leader>ef", ":NvimTreeFindFile<CR>", { desc = "Find file in explorer" })
+keymap("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
 keymap("n", "<leader>fe", ":NvimTreeFindFile<CR>", { desc = "Find current file in explorer" })
 keymap("n", "<C-S-e>", ":NvimTreeFindFile<CR>", { desc = "Find current file in explorer" })
 
