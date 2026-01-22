@@ -33,7 +33,7 @@ return {
       if branch ~= "" and not branch:match("^fatal") then
         return " " .. branch
       end
-      return ""
+      return "[no git]"
     end
 
     require("nvim-tree").setup({

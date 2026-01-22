@@ -42,9 +42,17 @@ end, { desc = "Live grep (case sensitive)" })
 keymap("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "Find buffers" })
 keymap("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Help tags" })
 keymap("n", "<leader>fr", "<cmd>Telescope oldfiles<CR>", { desc = "Recent files" })
-keymap("n", "<leader>gb", "<cmd>Telescope git_branches<CR>", { desc = "Git branches" })
 keymap("n", "<leader>gc", "<cmd>Telescope git_commits<CR>", { desc = "Git commits" })
 keymap("n", "<leader>gs", "<cmd>Telescope git_status<CR>", { desc = "Git status" })
+keymap("n", "<leader>gh", "<cmd>Telescope git_bcommits<CR>", { desc = "Git bcommits" })
+
+-- Gitsigns
+vim.keymap.set("n", "<leader>gb", "<cmd>Gitsigns blame_line full=true<cr>") -- Quick blame popup
+vim.keymap.set("n", "<leader>gB", "<cmd>Gitsigns blame<cr>") -- Full commit info
+vim.keymap.set("n", "<leader>gd", "<cmd>Gitsigns preview_hunk_inline<cr>") -- Diff current file
+
+keymap("n", "<leader>gr", "<cmd>Gdiffsplit!<CR>", { desc = "Git resolves in 3-way" })
+keymap("n", "<leader>gl", "<cmd>vert Gclog -n 100<CR>", { desc = "Git log (vertical)" })
 
 -- Lazygit
 keymap("n", "<leader>gg", "<cmd>LazyGit<CR>", { desc = "Open LazyGit" })

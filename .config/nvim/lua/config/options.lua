@@ -3,7 +3,7 @@ local opt = vim.opt
 
 -- Line numbers
 opt.number = true
-opt.relativenumber = true
+opt.relativenumber = false -- Show relative line numbers (counts up/down from current line)
 opt.numberwidth = 4
 
 -- Word wrapping
@@ -34,6 +34,9 @@ opt.sidescrolloff = 8
 -- Splits
 opt.splitbelow = true
 opt.splitright = true
+
+-- Diff
+opt.diffopt:append("vertical")
 
 -- Clipboard
 opt.clipboard = "unnamedplus"
