@@ -67,13 +67,19 @@ keymap("v", ">", ">gv", { desc = "Indent right" })
 keymap("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move text down" })
 keymap("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move text up" })
 
+-- Move lines up and down with Alt+arrows
+keymap("n", "<A-Up>", ":m .-2<CR>==", { desc = "Move line up" })
+keymap("n", "<A-Down>", ":m .+1<CR>==", { desc = "Move line down" })
+keymap("v", "<A-Up>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
+keymap("v", "<A-Down>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
+
 -- Clear search highlight
 keymap("n", "<Esc>", ":noh<CR>", { desc = "Clear search highlight" })
 
 -- Save and quit shortcuts
 keymap("n", "<leader>w", ":w<CR>", { desc = "Save file" })
 keymap("n", "<leader>q", ":q<CR>", { desc = "Quit" })
-keymap("n", "<leader>x", ":x<CR>", { desc = "Save and quit" })
+--keymap("n", "<leader>x", ":x<CR>", { desc = "Save and quit" })
 --keymap("n", "<leader>Q", ":qa<CR>", { desc = "Quit all" })
 
 -- Split windows
@@ -119,3 +125,23 @@ keymap("n", "<leader>cP", function()
   vim.fn.setreg("+", path)
   vim.notify("Copied: " .. path)
 end, { desc = "Copy absolute path" })
+
+-- Vim-surround shortcuts (easier to remember alternatives)
+-- Add surroundings
+keymap("n", "<leader>sa", "ysiw", { remap = true, desc = "Surround word (add)" })
+keymap("v", "<leader>sa", "S", { remap = true, desc = "Surround selection (add)" })
+-- Change surroundings
+keymap("n", "<leader>sc", "cs", { remap = true, desc = "Change surrounding" })
+-- Delete surroundings
+keymap("n", "<leader>sd", "ds", { remap = true, desc = "Delete surrounding" })
+-- Common surround operations
+keymap("n", '<leader>s"', 'ysiw"', { remap = true, desc = 'Surround word with "' })
+keymap("n", "<leader>s'", "ysiw'", { remap = true, desc = "Surround word with '" })
+keymap("n", "<leader>s(", "ysiw(", { remap = true, desc = "Surround word with ( )" })
+keymap("n", "<leader>s)", "ysiw)", { remap = true, desc = "Surround word with ()" })
+keymap("n", "<leader>s[", "ysiw[", { remap = true, desc = "Surround word with [ ]" })
+keymap("n", "<leader>s]", "ysiw]", { remap = true, desc = "Surround word with []" })
+keymap("n", "<leader>s{", "ysiw{", { remap = true, desc = "Surround word with { }" })
+keymap("n", "<leader>s}", "ysiw}", { remap = true, desc = "Surround word with {}" })
+keymap("n", "<leader>s<", "ysiw<", { remap = true, desc = "Surround word with < >" })
+keymap("n", "<leader>s>", "ysiw>", { remap = true, desc = "Surround word with <>" })

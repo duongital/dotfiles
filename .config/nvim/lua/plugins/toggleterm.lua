@@ -2,7 +2,7 @@ return {
   "akinsho/toggleterm.nvim",
   version = "*",
   config = function()
-    require("toggleterm").setup({
+    local float = {
       size = 80,
       open_mapping = [[<C-\>]],
       hide_numbers = true,
@@ -23,7 +23,24 @@ return {
         row = 1,
         col = vim.o.columns - 105,
       },
-    })
+    }
+
+    local horizon = {
+      size = math.floor(vim.o.lines * 0.25),
+      open_mapping = [[<C-\>]],
+      hide_numbers = true,
+      shade_terminals = true,
+      shading_factor = 2,
+      start_in_insert = true,
+      insert_mappings = true,
+      terminal_mappings = true,
+      persist_size = true,
+      direction = "horizontal",
+      close_on_exit = true,
+      shell = vim.o.shell,
+    }
+
+    require("toggleterm").setup(horizon)
 
     -- Terminal keymaps
     local keymap = vim.keymap.set
