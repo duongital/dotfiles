@@ -39,7 +39,11 @@ return {
     require("nvim-tree").setup({
       on_attach = on_attach,
       view = {
-        width = 30,
+        width = {
+          min = 30,
+          max = -1, -- unbounded
+          padding = 1,
+        },
       },
       renderer = {
         root_folder_label = function()
