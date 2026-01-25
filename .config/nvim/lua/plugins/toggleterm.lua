@@ -40,7 +40,7 @@ return {
       shell = vim.o.shell,
     }
 
-    require("toggleterm").setup(horizon)
+    require("toggleterm").setup(float)
 
     -- Terminal keymaps
     local keymap = vim.keymap.set
