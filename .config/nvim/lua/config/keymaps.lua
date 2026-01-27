@@ -51,7 +51,7 @@ vim.keymap.set("n", "<leader>gB", "<cmd>Gitsigns blame<cr>") -- Full commit info
 vim.keymap.set("n", "<leader>gd", "<cmd>Gitsigns preview_hunk_inline<cr>") -- Diff current file
 
 keymap("n", "<leader>gr", "<cmd>Gdiffsplit!<CR>", { desc = "Git resolves in 3-way" })
-keymap("n", "<leader>gl", "<cmd>vert Gclog -n 100<CR>", { desc = "Git log (vertical)" })
+keymap("n", "<leader>gl", "<cmd>vert Gclog --no-merges -n 100<CR><C-w>=", { desc = "Git log" })
 
 -- Lazygit
 keymap("n", "<leader>gg", "<cmd>LazyGit<CR>", { desc = "Open LazyGit" })
@@ -96,6 +96,20 @@ keymap("n", "<leader>rp", ":!uv run %<CR>", { desc = "Run Python file with uv" }
 keymap("n", "<leader>rt", ":!bun %<CR>", { desc = "Run TypeScript file with bun" })
 keymap("n", "<leader>rl", ":!lua %<CR>", { desc = "Run Lua file" })
 keymap("n", "<leader>rg", ":!go run .<CR>", { desc = "Run Go project" })
+
+-- REST client (kulala.nvim)
+keymap("n", "<leader>rr", "<cmd>lua require('kulala').run()<CR>", { desc = "Run REST request under cursor" })
+keymap("n", "<leader>ra", "<cmd>lua require('kulala').run_all()<CR>", { desc = "Run all REST requests" })
+keymap("n", "<leader>rs", "<cmd>lua require('kulala').search()<CR>", { desc = "Search REST requests" })
+keymap("n", "<leader>rv", "<cmd>lua require('kulala').toggle_view()<CR>", { desc = "Toggle REST view" })
+keymap("n", "<leader>ri", "<cmd>lua require('kulala').inspect()<CR>", { desc = "Inspect REST request" })
+keymap("n", "<leader>rc", "<cmd>lua require('kulala').copy()<CR>", { desc = "Copy REST request as curl" })
+keymap("n", "<leader>rR", "<cmd>lua require('kulala').replay()<CR>", { desc = "Replay last REST request" })
+keymap("n", "[r", "<cmd>lua require('kulala').jump_prev()<CR>", { desc = "Jump to previous REST request" })
+keymap("n", "]r", "<cmd>lua require('kulala').jump_next()<CR>", { desc = "Jump to next REST request" })
+-- Environment management
+keymap("n", "<leader>re", "<cmd>lua require('kulala').set_selected_env()<CR>", { desc = "Select REST environment" })
+keymap("n", "<leader>rE", "<cmd>lua vim.notify('Current env: ' .. require('kulala').get_selected_env())<CR>", { desc = "Show current REST environment" })
 
 -- LSP Diagnostics
 keymap("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show line diagnostics" })

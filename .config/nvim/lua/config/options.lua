@@ -61,13 +61,3 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHo
   pattern = "*",
   command = "checktime",
 })
-
--- Open quickfix list on bottom
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "qf",
-  callback = function()
-    vim.cmd("botright wincmd J")
-    vim.cmd("resize 10")
-  end,
-})
-

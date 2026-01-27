@@ -29,13 +29,13 @@ return {
     harpoon:extend({
       UI_CREATE = function(cx)
         -- Set custom height & width
+        local ui = vim.api.nvim_list_uis()[1]
         local height = 20
-        local width = 80
+        local width = math.floor(ui.width * 0.8)
         vim.api.nvim_win_set_height(cx.win_id, height)
         vim.api.nvim_win_set_width(cx.win_id, width)
 
         -- Center the window
-        local ui = vim.api.nvim_list_uis()[1]
         local row = math.floor((ui.height - height) / 2)
         local col = math.floor((ui.width - width) / 2)
         vim.api.nvim_win_set_config(cx.win_id, {
@@ -43,6 +43,15 @@ return {
           row = row,
           col = col,
         })
+
+        -- Add syntax highlighting for comments (text after --, |, or #)
+        vim.bo[cx.bufnr].filetype = "harpoon"
+        vim.cmd([[
+          syntax match HarpoonComment /\s\+--.*$/
+          syntax match HarpoonComment /\s\+|.*$/
+          syntax match HarpoonComment /\s\+#.*$/
+          highlight link HarpoonComment Comment
+        ]])
       end,
     })
 
