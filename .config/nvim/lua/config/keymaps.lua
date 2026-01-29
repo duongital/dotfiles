@@ -50,8 +50,7 @@ vim.keymap.set("n", "<leader>gb", "<cmd>Gitsigns blame_line full=true<cr>") -- Q
 vim.keymap.set("n", "<leader>gB", "<cmd>Gitsigns blame<cr>") -- Full commit info
 vim.keymap.set("n", "<leader>gd", "<cmd>Gitsigns preview_hunk_inline<cr>") -- Diff current file
 
-keymap("n", "<leader>gr", "<cmd>Gdiffsplit!<CR>", { desc = "Git resolves in 3-way" })
-keymap("n", "<leader>gl", "<cmd>vert Gclog --no-merges -n 100<CR><C-w>=", { desc = "Git log" })
+
 
 -- Lazygit
 keymap("n", "<leader>gg", "<cmd>LazyGit<CR>", { desc = "Open LazyGit" })
@@ -109,13 +108,23 @@ keymap("n", "[r", "<cmd>lua require('kulala').jump_prev()<CR>", { desc = "Jump t
 keymap("n", "]r", "<cmd>lua require('kulala').jump_next()<CR>", { desc = "Jump to next REST request" })
 -- Environment management
 keymap("n", "<leader>re", "<cmd>lua require('kulala').set_selected_env()<CR>", { desc = "Select REST environment" })
-keymap("n", "<leader>rE", "<cmd>lua vim.notify('Current env: ' .. require('kulala').get_selected_env())<CR>", { desc = "Show current REST environment" })
+keymap(
+  "n",
+  "<leader>rE",
+  "<cmd>lua vim.notify('Current env: ' .. require('kulala').get_selected_env())<CR>",
+  { desc = "Show current REST environment" }
+)
+
+-- Diffview
+keymap("n", "<leader>do", "<cmd>DiffviewOpen<CR>", { desc = "Open diff view" })
+keymap("n", "<leader>dc", "<cmd>DiffviewClose<CR>", { desc = "Close diff view" })
+keymap("n", "<leader>dh", "<cmd>DiffviewFileHistory<CR>", { desc = "File history (all)" })
+keymap("n", "<leader>df", "<cmd>DiffviewFileHistory %<CR>", { desc = "File history (current)" })
+keymap("n", "<leader>dt", "<cmd>DiffviewToggleFiles<CR>", { desc = "Toggle file panel" })
+keymap("n", "<leader>dr", "<cmd>DiffviewRefresh<CR>", { desc = "Refresh diff view" })
 
 -- LSP Diagnostics
-keymap("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show line diagnostics" })
 keymap("n", "<leader>dl", vim.diagnostic.setloclist, { desc = "Show all diagnostics" })
-keymap("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
-keymap("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
 
 -- LSP Code navigation
 keymap("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Show diagnostics at cursor" })

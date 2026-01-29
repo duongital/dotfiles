@@ -19,7 +19,7 @@ return {
         border = "curved",
         winblend = 0,
         width = 100,
-        height = 40,
+        height = math.floor(vim.o.lines * 0.8),
         row = 1,
         col = vim.o.columns - 105,
       },

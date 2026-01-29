@@ -30,7 +30,8 @@ return {
           },
         },
         lualine_x = {},
-        lualine_y = { "progress" },
+        -- lualine_y = { "progress" },
+        lualine_y = { "encoding" },
         lualine_z = { "location" },
       },
       inactive_sections = {

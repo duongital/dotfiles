@@ -8,6 +8,15 @@
 return {
   "max397574/better-escape.nvim",
   config = function()
-    require("better_escape").setup()
+    require("better_escape").setup({
+      mappings = {
+        i = {
+          j = {
+            k = "<Esc>",
+          },
+        },
+        t = {}, -- Disable in terminal mode (lazygit runs in terminal)
+      },
+    })
   end,
 }
