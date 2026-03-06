@@ -36,8 +36,8 @@ return {
       additional_curl_options = {},
       -- UI settings
       ui = {
-        -- Response size limit (in bytes): 200KB
-        max_response_size = 204800,
+        -- Response size limit (in bytes): 500KB
+        max_response_size = 512000,
       },
     })
   end,

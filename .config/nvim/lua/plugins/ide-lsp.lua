@@ -17,7 +17,6 @@
 --   gr - Find references
 --   K - Hover documentation
 --   <leader>ca - Code actions
---   <leader>rn - Rename symbol
 --   [d / ]d - Navigate diagnostics
 return {
   "neovim/nvim-lspconfig",
@@ -54,7 +53,7 @@ return {
         end, opts)
         vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
         vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+        vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, opts)
         vim.keymap.set("n", "[d", function()
           vim.diagnostic.jump({ count = -1 })
         end, opts)

@@ -17,6 +17,7 @@ return {
     config = function()
       require("vscode").setup({
         style = "dark",
+        transparent = false,
       })
       vim.cmd.colorscheme("vscode")
     end,
@@ -24,10 +25,24 @@ return {
   {
     "projekt0n/github-nvim-theme",
     name = "github-theme",
+    config = function()
+      require("github-theme").setup({
+        options = {
+          transparent = true,
+        },
+      })
+    end,
   },
   {
     "catppuccin/nvim",
     name = "catppuccin",
+    config = function()
+      require("catppuccin").setup({
+        options = {
+          transparent = true,
+        },
+      })
+    end,
   },
   { "arcticicestudio/nord-vim" },
   {

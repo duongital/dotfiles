@@ -20,6 +20,21 @@ return {
       -- Default mappings
       api.config.mappings.default_on_attach(bufnr)
 
+      -- Remove 's' for system open (we'll use 'x' or another key)
+      vim.keymap.del("n", "s", { buffer = bufnr })
+
+      -- Custom: s to cycle sort method
+      local sort_methods = { "name", "case_sensitive", "modification_time", "extension" }
+      local current_sort_index = 1
+      vim.keymap.set("n", "s", function()
+        current_sort_index = (current_sort_index % #sort_methods) + 1
+        local method = sort_methods[current_sort_index]
+        require("nvim-tree").setup_called = false
+        vim.g.nvim_tree_sort_by = method
+        api.tree.reload()
+        vim.notify("Sort by: " .. method)
+      end, opts("Cycle sort method"))
+
       -- Custom: gf to grep in folder
       vim.keymap.set("n", "gf", function()
         local node = api.tree.get_node_under_cursor()
@@ -56,6 +71,47 @@ return {
       git = {
         enable = true,
         ignore = false,
+      },
+      sort = {
+        sorter = function(nodes)
+          table.sort(nodes, function(a, b)
+            -- Folders always come first
+            if a.type == "directory" and b.type ~= "directory" then
+              return true
+            elseif a.type ~= "directory" and b.type == "directory" then
+              return false
+            end
+
+            local a_name = a.name
+            local b_name = b.name
+            local a_lower = a_name:lower()
+            local b_lower = b_name:lower()
+
+            -- If names are the same when lowercased, compare original
+            if a_lower == b_lower then
+              return a_name < b_name
+            end
+
+            -- Check if first char is uppercase
+            local a_is_upper = a_name:match("^%u")
+            local b_is_upper = b_name:match("^%u")
+
+            -- If one starts with uppercase and other doesn't, lowercase comes first
+            if a_is_upper and not b_is_upper then
+              return false
+            elseif not a_is_upper and b_is_upper then
+              return true
+            end
+
+            -- Both same case priority, sort alphabetically (case-insensitive)
+            return a_lower < b_lower
+          end)
+          return nodes
+        end,
+        folders_first = true,
+      },
+      filesystem_watchers = {
+        enable = true,
       },
     })
   end,

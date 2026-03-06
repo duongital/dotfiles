@@ -15,7 +15,11 @@ return {
             k = "<Esc>",
           },
         },
-        t = {}, -- Disable in terminal mode (lazygit runs in terminal)
+        t = {
+          j = {
+            k = "",
+          },
+        }, -- Disable in terminal mode (lazygit runs in terminal)
       },
     })
   end,

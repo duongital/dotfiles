@@ -50,8 +50,6 @@ vim.keymap.set("n", "<leader>gb", "<cmd>Gitsigns blame_line full=true<cr>") -- Q
 vim.keymap.set("n", "<leader>gB", "<cmd>Gitsigns blame<cr>") -- Full commit info
 vim.keymap.set("n", "<leader>gd", "<cmd>Gitsigns preview_hunk_inline<cr>") -- Diff current file
 
-
-
 -- Lazygit
 keymap("n", "<leader>gg", "<cmd>LazyGit<CR>", { desc = "Open LazyGit" })
 
@@ -86,8 +84,12 @@ keymap("n", "<leader>sv", ":vsplit<CR>", { desc = "Split vertically" })
 keymap("n", "<leader>sh", ":split<CR>", { desc = "Split horizontally" })
 keymap("n", "<leader>sc", ":close<CR>", { desc = "Close split" })
 
+-- Theme switcher
+keymap("n", "<leader>tg", ":colorscheme github_dark_default<CR>", { desc = "GitHub Dark Default theme" })
+keymap("n", "<leader>tv", ":colorscheme vscode<CR>", { desc = "VSCode theme" })
+keymap("n", "<leader>tc", ":colorscheme catppuccin-mocha<CR>", { desc = "Catppuccin Mocha theme" })
+
 -- Terminal
-keymap("n", "<leader>tt", ":terminal<CR>", { desc = "Open terminal" })
 keymap("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- Run code
@@ -123,11 +125,10 @@ keymap("n", "<leader>df", "<cmd>DiffviewFileHistory %<CR>", { desc = "File histo
 keymap("n", "<leader>dt", "<cmd>DiffviewToggleFiles<CR>", { desc = "Toggle file panel" })
 keymap("n", "<leader>dr", "<cmd>DiffviewRefresh<CR>", { desc = "Refresh diff view" })
 
--- LSP Diagnostics
-keymap("n", "<leader>dl", vim.diagnostic.setloclist, { desc = "Show all diagnostics" })
-
 -- LSP Code navigation
 keymap("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Show diagnostics at cursor" })
+keymap("n", "<leader>cl", vim.diagnostic.setloclist, { desc = "Show all diagnostics" })
+
 keymap("n", "gr", function()
   require("telescope.builtin").lsp_references({ jump_type = "never" })
 end, { desc = "Go to references" })
