@@ -37,6 +37,10 @@ return {
           vim.schedule(function() gs.prev_hunk() end)
           return '<Ignore>'
         end, { expr = true, desc = 'Previous hunk' })
+
+        map("n", "<leader>gb", "<cmd>Gitsigns blame_line full=true<cr>", { desc = "Blame line" })
+        map("n", "<leader>gB", "<cmd>Gitsigns blame<cr>", { desc = "Blame (full)" })
+        map("n", "<leader>gd", "<cmd>Gitsigns preview_hunk_inline<cr>", { desc = "Preview hunk inline" })
       end,
     })
   end,

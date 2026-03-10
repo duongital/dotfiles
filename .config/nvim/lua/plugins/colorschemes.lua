@@ -20,6 +20,11 @@ return {
         transparent = false,
       })
       vim.cmd.colorscheme("vscode")
+
+      local keymap = vim.keymap.set
+      keymap("n", "<leader>tg", ":colorscheme github_dark_default<CR>", { desc = "GitHub Dark Default theme" })
+      keymap("n", "<leader>tv", ":colorscheme vscode<CR>", { desc = "VSCode theme" })
+      keymap("n", "<leader>tc", ":colorscheme catppuccin-mocha<CR>", { desc = "Catppuccin Mocha theme" })
     end,
   },
   {

@@ -60,6 +60,8 @@ return {
         vim.keymap.set("n", "]d", function()
           vim.diagnostic.jump({ count = 1 })
         end, opts)
+        vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Show diagnostics at cursor" })
+        vim.keymap.set("n", "<leader>cl", vim.diagnostic.setloclist, { desc = "Show all diagnostics" })
       end,
     })
 

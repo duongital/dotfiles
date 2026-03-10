@@ -5,8 +5,6 @@
 --   - Create, delete, rename, move files and folders
 --   - Git integration (shows file status)
 --   - Split/vsplit file opening
--- Keybindings (from keymaps.lua):
---   <leader>e / <leader>ef - Toggle/focus file explorer
 return {
   "nvim-tree/nvim-tree.lua",
   dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -114,5 +112,10 @@ return {
         enable = true,
       },
     })
+
+    local keymap = vim.keymap.set
+    keymap("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
+    keymap("n", "<leader>fe", ":NvimTreeFindFile<CR>", { desc = "Find current file in explorer" })
+    keymap("n", "<C-S-e>", ":NvimTreeFindFile<CR>", { desc = "Find current file in explorer" })
   end,
 }

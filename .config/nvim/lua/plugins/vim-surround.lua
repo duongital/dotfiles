@@ -17,5 +17,21 @@ return {
     -- You can still use ys, cs, ds for surround operations
     vim.keymap.del("n", "s")
     vim.keymap.del("n", "S")
+
+    local keymap = vim.keymap.set
+    keymap("n", "<leader>sa", "ysiw", { remap = true, desc = "Surround word (add)" })
+    keymap("v", "<leader>sa", "S", { remap = true, desc = "Surround selection (add)" })
+    keymap("n", "<leader>sc", "cs", { remap = true, desc = "Change surrounding" })
+    keymap("n", "<leader>sd", "ds", { remap = true, desc = "Delete surrounding" })
+    keymap("n", '<leader>s"', 'ysiw"', { remap = true, desc = 'Surround word with "' })
+    keymap("n", "<leader>s'", "ysiw'", { remap = true, desc = "Surround word with '" })
+    keymap("n", "<leader>s(", "ysiw(", { remap = true, desc = "Surround word with ( )" })
+    keymap("n", "<leader>s)", "ysiw)", { remap = true, desc = "Surround word with ()" })
+    keymap("n", "<leader>s[", "ysiw[", { remap = true, desc = "Surround word with [ ]" })
+    keymap("n", "<leader>s]", "ysiw]", { remap = true, desc = "Surround word with []" })
+    keymap("n", "<leader>s{", "ysiw{", { remap = true, desc = "Surround word with { }" })
+    keymap("n", "<leader>s}", "ysiw}", { remap = true, desc = "Surround word with {}" })
+    keymap("n", "<leader>s<", "ysiw<", { remap = true, desc = "Surround word with < >" })
+    keymap("n", "<leader>s>", "ysiw>", { remap = true, desc = "Surround word with <>" })
   end,
 }

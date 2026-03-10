@@ -26,4 +26,8 @@ return {
       },
     },
   },
+  config = function(_, opts)
+    require("bufferline").setup(opts)
+    vim.keymap.set("n", "<leader>bo", "<cmd>BufferLineCloseOthers<CR>", { desc = "Close other buffers" })
+  end,
 }

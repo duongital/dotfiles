@@ -6,8 +6,6 @@ return {
   "sindrets/diffview.nvim",
   dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" },
   config = function()
-    local actions = require("diffview.actions")
-
     require("diffview").setup({
       -- Use nvim-web-devicons for file icons (same as nvim-tree)
       icons = {
@@ -32,5 +30,13 @@ return {
         end,
       },
     })
+
+    local keymap = vim.keymap.set
+    keymap("n", "<leader>do", "<cmd>DiffviewOpen<CR>", { desc = "Open diff view" })
+    keymap("n", "<leader>dc", "<cmd>DiffviewClose<CR>", { desc = "Close diff view" })
+    keymap("n", "<leader>dh", "<cmd>DiffviewFileHistory<CR>", { desc = "File history (all)" })
+    keymap("n", "<leader>df", "<cmd>DiffviewFileHistory %<CR>", { desc = "File history (current)" })
+    keymap("n", "<leader>dt", "<cmd>DiffviewToggleFiles<CR>", { desc = "Toggle file panel" })
+    keymap("n", "<leader>dr", "<cmd>DiffviewRefresh<CR>", { desc = "Refresh diff view" })
   end,
 }
